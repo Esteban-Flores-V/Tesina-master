@@ -3,7 +3,6 @@ package app.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.*;
 
 public class ClienteDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/inmobiliaria";

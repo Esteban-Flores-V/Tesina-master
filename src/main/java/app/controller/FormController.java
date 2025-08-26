@@ -27,8 +27,6 @@ public class FormController {
             stage.setScene(new Scene(root));
             stage.show();
 
-            // Opcional: cerrar el login al abrir el registro
-            // ((Stage) nombreField.getScene().getWindow()).close();
 
         } catch (Exception e) {
             e.printStackTrace();

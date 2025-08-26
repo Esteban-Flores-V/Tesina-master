@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.Menu">
     <children>
         <!-- Menú superior -->
         <MenuBar prefWidth="600.0" styleClass="menu-bar">
@@ -56,18 +56,18 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="96.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa nombre del cliente" />
+            <TextField fx:id="txtNombre" layoutX="96.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa nombre del cliente" />
             <Label layoutX="96.0" layoutY="82.0" text="Nombre" />
             <Label layoutX="308.0" layoutY="82.0" text="Apellido" />
-            <TextField layoutX="308.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa apellido del cliente" />
-            <TextField layoutX="96.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el DNI del cliente" />
+            <TextField fx:id="txtApellido" layoutX="308.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa apellido del cliente" />
+            <TextField fx:id="txtDni" layoutX="96.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el DNI del cliente" />
             <Label layoutX="96.0" layoutY="147.0" text="DNI" />
-            <TextField layoutX="308.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el telefono del cliente" />
+            <TextField fx:id="txtTelefono" layoutX="308.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el telefono del cliente" />
             <Label layoutX="308.0" layoutY="147.0" text="Telefono" />
-            <TextField layoutX="96.0" layoutY="228.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el email del cliente" />
+            <TextField fx:id="txtEmail" layoutX="96.0" layoutY="228.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el email del cliente" />
             <Label layoutX="96.0" layoutY="211.0" text="Email" />
-            <Button layoutX="457.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Registrar" />
-            <Button layoutX="366.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancelar" />
+            <Button layoutX="457.0" layoutY="313.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="25.0" prefWidth="80.0" text="Registrar" />
+            <Button layoutX="366.0" layoutY="313.0" mnemonicParsing="false" onAction="#limpiarRegistrarC" prefHeight="25.0" prefWidth="80.0" text="Cancelar" />
          </children>
       </AnchorPane>
     </children>
