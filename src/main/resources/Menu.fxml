@@ -1,52 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Menu"
-            prefHeight="400.0" prefWidth="600.0"
-            stylesheets="@style.css">
-
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Menu">
     <children>
         <!-- Menú superior -->
         <MenuBar prefWidth="600.0" styleClass="menu-bar">
             <menus>
-                <Menu text="Propiedades" styleClass="menu">
+                <Menu styleClass="menu" text="Propiedades">
                     <items>
-                        <MenuItem text="Ver Propiedades" fx:id="menuVerPropiedades">
+                        <MenuItem fx:id="menuVerPropiedades" text="Ver Propiedades">
                             <graphic>
                                 <ImageView fitHeight="16" fitWidth="16">
                                     <image>
-                                        <Image url="https://www.livehome3d.com/assets/img/articles/design-house/how-to-design-a-house.jpg"/>
+                                        <Image url="https://www.livehome3d.com/assets/img/articles/design-house/how-to-design-a-house.jpg" />
                                     </image>
                                 </ImageView>
                             </graphic>
                         </MenuItem>
-                        <MenuItem text="Agregar Propiedad" fx:id="menuAgregarPropiedad"/>
+                        <MenuItem fx:id="menuAgregarPropiedad" text="Agregar Propiedad" />
                     </items>
                 </Menu>
-                <Menu text="Clientes" styleClass="menu">
+                <Menu styleClass="menu" text="Clientes">
                     <items>
-                        <MenuItem text="Ver Clientes" fx:id="menuVerClientes"/>
-                        <MenuItem text="Registrar Cliente" fx:id="menuRegistrarCliente"/>
+                        <MenuItem fx:id="menuVerClientes" text="Ver Clientes" />
+                        <MenuItem fx:id="menuRegistrarCliente" text="Registrar Cliente" />
                     </items>
                 </Menu>
-                <Menu text="Contratos" styleClass="menu">
+                <Menu styleClass="menu" text="Contratos">
                     <items>
-                        <MenuItem text="Ver Contratos" fx:id="menuVerContratos"/>
-                        <MenuItem text="Nuevo Contrato" fx:id="menuNuevoContrato"/>
+                        <MenuItem fx:id="menuVerContratos" text="Ver Contratos" />
+                        <MenuItem fx:id="menuNuevoContrato" text="Nuevo Contrato" />
                     </items>
                 </Menu>
-                <Menu text="Salir" styleClass="menu">
+                <Menu styleClass="menu" text="Salir">
                     <items>
-                        <MenuItem text="Cerrar aplicación" fx:id="menuSalir"/>
+                        <MenuItem fx:id="menuSalir" text="Cerrar aplicación" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
+      <AnchorPane fx:id="cRegistrar" layoutX="25.0" layoutY="34.0" prefHeight="352.0" prefWidth="551.0" visible="false">
+         <children>
+            <Label layoutX="185.0" layoutY="20.0" prefHeight="35.0" prefWidth="181.0" text="Registrar Cliente">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField layoutX="96.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa nombre del cliente" />
+            <Label layoutX="96.0" layoutY="82.0" text="Nombre" />
+            <Label layoutX="308.0" layoutY="82.0" text="Apellido" />
+            <TextField layoutX="308.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa apellido del cliente" />
+            <TextField layoutX="96.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el DNI del cliente" />
+            <Label layoutX="96.0" layoutY="147.0" text="DNI" />
+            <TextField layoutX="308.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el telefono del cliente" />
+            <Label layoutX="308.0" layoutY="147.0" text="Telefono" />
+            <TextField layoutX="96.0" layoutY="228.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el email del cliente" />
+            <Label layoutX="96.0" layoutY="211.0" text="Email" />
+            <Button layoutX="457.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Registrar" />
+            <Button layoutX="366.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancelar" />
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

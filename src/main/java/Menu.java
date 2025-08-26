@@ -1,5 +1,6 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 
 public class Menu {
 
@@ -12,14 +13,21 @@ public class Menu {
     @FXML private MenuItem menuSalir;
 
     @FXML
+    private AnchorPane cRegistrar;
+
+
+    @FXML
     public void initialize() {
         menuVerPropiedades.setOnAction(e -> abrirVentana("propiedades.fxml"));
         menuAgregarPropiedad.setOnAction(e -> abrirVentana("agregarPropiedad.fxml"));
         menuVerClientes.setOnAction(e -> abrirVentana("clientes.fxml"));
-        menuRegistrarCliente.setOnAction(e -> abrirVentana("registrarCliente.fxml"));
         menuVerContratos.setOnAction(e -> abrirVentana("contratos.fxml"));
         menuNuevoContrato.setOnAction(e -> abrirVentana("nuevoContrato.fxml"));
         menuSalir.setOnAction(e -> System.exit(0));
+
+        menuRegistrarCliente.setOnAction(e -> {
+            cRegistrar.setVisible(true);
+        });
     }
 
     private void abrirVentana(String fxmlFile) {
