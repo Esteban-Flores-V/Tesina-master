@@ -12,28 +12,27 @@ import javafx.stage.Stage;
 
 public class FormController {
     @FXML
-    private TextField nombreField;
+    private TextField nombreField; // Aquí puede ir nombre o email
     @FXML
     private TextField contraseñaField;
 
     @FXML
-    private void guardarUsuario() {
-        String nombre = nombreField.getText();
-        String contraseña = contraseñaField.getText();
-        if (nombre.trim().isEmpty() || contraseña.trim().isEmpty()) {
-            mostrarError("Problema bb", "Los valores no pueden ser nulo");
-            return;
-        }
+    private void abrirRegister() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Register.fxml"));
+            Parent root = loader.load();
 
+            Stage stage = new Stage();
+            stage.setTitle("Registrar Usuario");
+            stage.setScene(new Scene(root));
+            stage.show();
 
-        Usuario usuario = new Usuario(nombre, contraseña);
+            // Opcional: cerrar el login al abrir el registro
+            // ((Stage) nombreField.getScene().getWindow()).close();
 
-        if (UsuarioDAO.insertar(usuario)) {
-            mostrarAlerta("Éxito", "Usuario registrado correctamente");
-            nombreField.clear();
-            contraseñaField.clear();
-        } else {
-            mostrarAlerta("Error", "No se pudo registrar el usuario");
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarError("Error", "No se pudo abrir el formulario de registro");
         }
     }
 
@@ -42,7 +41,7 @@ public class FormController {
         String nombre = nombreField.getText();
         String contraseña = contraseñaField.getText();
 
-        Usuario usuario = new Usuario(nombre, contraseña);
+        Usuario usuario = new Usuario(nombreField.getText(), contraseñaField.getText());
 
         if (UsuarioDAO.checkDB(usuario)) {
             mostrarAlerta("Bienvenido", "Inicio de sesión correcto");

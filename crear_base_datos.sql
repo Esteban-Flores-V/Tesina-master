@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(100) NOT NULL,
     contraseña VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL
 );
 
 -- Clientes (personas que compran, venden, alquilan)

@@ -11,11 +11,12 @@ public class UsuarioDAO {
     private static final String PASSWORD = "";
 
     public static boolean insertar(Usuario usuario) {
-        String sql = "INSERT INTO usuarios (usuario, contraseña) VALUES (?, ?)";
+        String sql = "INSERT INTO usuarios (usuario, contraseña, email) VALUES (?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, usuario.getNombre());
             stmt.setString(2, usuario.getContraseña());
+            stmt.setString(3, usuario.getEmail());
             stmt.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -24,11 +25,15 @@ public class UsuarioDAO {
         }
     }
     public static boolean checkDB(Usuario usuario) {
-        String sql = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
+        String sql = "SELECT * FROM usuarios WHERE (usuario = ? OR email = ?) AND contraseña = ?";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, usuario.getNombre().trim());
-            stmt.setString(2, usuario.getContraseña().trim());
+
+
+            stmt.setString(1, usuario.getNombre().trim()); // nombre
+            stmt.setString(2, usuario.getNombre().trim()); // email
+            stmt.setString(3, usuario.getContraseña().trim()); // contraseña
+
 
             ResultSet rs = stmt.executeQuery();
             return rs.next(); // Si existe al menos un registro, el usuario es válido
