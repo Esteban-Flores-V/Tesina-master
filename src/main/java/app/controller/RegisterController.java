@@ -50,6 +50,11 @@ public class RegisterController {
             return;
         }
 
+        if (UsuarioDAO.ValidarEmail(email)) {
+            mostrarError("Error", "El email ya está registrado");
+            return;
+        }
+
         if (!contraseña.equals(confirmar)) {
             mostrarError("Error", "Las contraseñas no coinciden");
             return;
@@ -59,12 +64,6 @@ public class RegisterController {
             mostrarError("Error", "La contraseña debe tener al menos 8 caracteres");
             return;
         }
-
-        if (UsuarioDAO.ValidarEmail(email)) {
-            mostrarError("Error", "El email ya está registrado");
-            return;
-        }
-
 
         Usuario usuario = new Usuario(nombre, email, contraseña);
 
