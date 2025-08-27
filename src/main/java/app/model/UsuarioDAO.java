@@ -42,4 +42,19 @@ public class UsuarioDAO {
             return false;
         }
     }
-}
+    public static boolean ValidarEmail(String email) {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE email = ?";
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, email.trim());
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+        }
+    }

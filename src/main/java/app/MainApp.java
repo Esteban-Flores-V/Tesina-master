@@ -10,7 +10,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/InicioSesion.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-        stage.setTitle("Registro de Usuarios mi lokita");
+        stage.setTitle("Inicio de Sesion");
         stage.setScene(scene);
         stage.show();
     }

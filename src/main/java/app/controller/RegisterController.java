@@ -36,6 +36,9 @@ public class RegisterController {
         String contraseña = IngreseContraseña.getText();
         String confirmar = ConfirmarContraseña.getText();
 
+        String VerContra = VerContraseña.getText();
+        String VerReconf = VerReconfirmar.getText();
+
         if (nombre.trim().isEmpty() || email.trim().isEmpty() || contraseña.trim().isEmpty() || confirmar.trim().isEmpty()) {
             mostrarError("Error", "Todos los campos son obligatorios");
             return;
@@ -51,6 +54,17 @@ public class RegisterController {
             mostrarError("Error", "Las contraseñas no coinciden");
             return;
         }
+
+        if (IngreseContraseña.getText().length() < 8) {
+            mostrarError("Error", "La contraseña debe tener al menos 8 caracteres");
+            return;
+        }
+
+        if (UsuarioDAO.ValidarEmail(email)) {
+            mostrarError("Error", "El email ya está registrado");
+            return;
+        }
+
 
         Usuario usuario = new Usuario(nombre, email, contraseña);
 
