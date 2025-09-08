@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -68,6 +70,43 @@
             <Label layoutX="96.0" layoutY="211.0" text="Email" />
             <Button layoutX="457.0" layoutY="313.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="25.0" prefWidth="80.0" text="Registrar" />
             <Button layoutX="366.0" layoutY="313.0" mnemonicParsing="false" onAction="#limpiarRegistrarC" prefHeight="25.0" prefWidth="80.0" text="Cancelar" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="verCliente" layoutY="25.0" prefHeight="375.0" prefWidth="600.0" visible="false">
+         <children>
+            <TableView fx:id="tablaCliente" layoutX="24.0" layoutY="14.0" prefHeight="290.0" prefWidth="551.0">
+              <columns>
+                <TableColumn fx:id="colNombre" prefWidth="107.0" text="Nombre" />
+                  <TableColumn fx:id="colApellido" prefWidth="109.0" text="Apellido" />
+                  <TableColumn fx:id="colDNI" minWidth="0.0" prefWidth="110.0" text="DNI" />
+                  <TableColumn fx:id="colTelefono" prefWidth="104.0" text="Telefono" />
+                  <TableColumn fx:id="colEmail" prefWidth="120.0" text="Email" />
+              </columns>
+            </TableView>
+            <Button fx:id="regCli" layoutX="487.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Registrar" />
+            <Button fx:id="modCli" layoutX="411.0" layoutY="327.0" mnemonicParsing="false" onAction="#seleccionarClienteParaEditar" prefHeight="25.0" prefWidth="69.0" text="Modificar" />
+            <Button fx:id="delCli" layoutX="336.0" layoutY="327.0" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="25.0" prefWidth="69.0" text="Eliminar" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="modCliente" layoutX="35.0" layoutY="44.0" prefHeight="352.0" prefWidth="551.0" visible="false">
+         <children>
+            <Label layoutX="185.0" layoutY="20.0" prefHeight="35.0" prefWidth="181.0" text="Modificar Cliente">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombre1" layoutX="96.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa nombre del cliente" />
+            <Label layoutX="96.0" layoutY="82.0" text="Nombre" />
+            <Label layoutX="308.0" layoutY="82.0" text="Apellido" />
+            <TextField fx:id="txtApellido1" layoutX="308.0" layoutY="99.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingresa apellido del cliente" />
+            <TextField fx:id="txtDni1" layoutX="96.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el DNI del cliente" />
+            <Label layoutX="96.0" layoutY="147.0" text="DNI" />
+            <TextField fx:id="txtTelefono1" layoutX="309.0" layoutY="164.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el telefono del cliente" />
+            <Label layoutX="308.0" layoutY="147.0" text="Telefono" />
+            <TextField fx:id="txtEmail1" layoutX="96.0" layoutY="228.0" prefHeight="25.0" prefWidth="165.0" promptText="Ingrese el email del cliente" />
+            <Label layoutX="96.0" layoutY="211.0" text="Email" />
+            <Button layoutX="457.0" layoutY="313.0" mnemonicParsing="false" onAction="#guardarEdicionCliente" prefHeight="25.0" prefWidth="80.0" text="Modificar" />
+            <Button layoutX="366.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancelar" />
          </children>
       </AnchorPane>
     </children>
